@@ -4,6 +4,9 @@ Gregory Tidd
 PRG/410
 Instructor: Gholam Ali Shaykhian
 Random number generator 3.0
+
+Richard Case
+9/16/16
 */
 
 #include <iostream>
@@ -11,8 +14,6 @@ Random number generator 3.0
 #include <ctime>  // used to make number truly random
 
 using namespace std;
-
-
 
 int playerAnswer(int, int); //prototypes function
 
@@ -31,17 +32,14 @@ int main()
 		int attemptsMax = 15;
 
 
-		while ((userInput != randomNumber) && (attempts <= 15))
+		while (userInput != randomNumber && attempts <= 15)
 		{
 			cout << "Random Number Guessing Game" << endl;
-			cout << "Guess a number betweeen 1-10 try to find the random number you have " << attemptsMax << " left: " << endl;
+			cout << "Guess a number betweeen 1-10 try to find the random number you have " << attemptsMax-- << " left: \n";
 			cout << "Please enter your guess : ";
-
-			attemptsMax--;
 			
 			cin >> userInput;  // User to enter a guess between 1 and 10
-			choice[attempts] = userInput;
-			attempts++;
+			choice[attempts++] = userInput;
 
 
 			for (int i = 0; i < attempts; i++)
@@ -50,8 +48,7 @@ int main()
 
 			}
 
-			int returnValue; // assigns returnValue to switch case statments otherwise it would not work with userInput
-			playerAnswer; //calls function
+			int returnValue; // assigns returnValue to switch case statments otherwise it would not work with playerAnswer(); //calls function
 
 			returnValue = playerAnswer(randomNumber, userInput); // assigns return value to returnValue for switch case
 
@@ -73,7 +70,7 @@ int main()
 				cout << "Your guess is not within the guidelines of this game.  Please enter a NUMBER between 1 and 10." << endl << endl;
 			}
 		}
-	if ((attempts = 15) && (userInput != randomNumber))
+	if (attempts == 15 && userInput != randomNumber)
 		{
 			cout << "Game over please try again" << endl << endl;
 		}
@@ -105,13 +102,8 @@ int playerAnswer(int randomNumber, int userInput)
 	{
 		return -1;
 	}
-	else if (userInput < 1 || userInput > 10)
-	{
-		return -2;
-	}
 	else
 	{
 		return -2;
 	}
-
 }
